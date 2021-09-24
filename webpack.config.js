@@ -10,6 +10,7 @@ module.exports = {
         extensions: ['.ts', '.js'],
     },
     entry: [
+        '@babel/polyfill',
         './src/app/index.js'
     ],
     output: {
