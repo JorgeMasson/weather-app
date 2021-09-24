@@ -4,3 +4,22 @@ body {
     background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
 }
+.sub-title {
+    margin-top: -5px;
+    font-weight: 600;
+    margin-bottom: 55px;
+}
+.section-header {
+    margin-bottom: 35px;
+}
+.plan-style {
+    margin: auto;
+    text-align: center;
+    /*background-color: #fff;*/
+    position: relative;
+    border-radius: 30px;
+    transition: all .3s ease-in-out;
+}
+.plan-style .bg-blue {
+    background: linear-gradient(to left, #a8c0ff, #3f2b96);
+}

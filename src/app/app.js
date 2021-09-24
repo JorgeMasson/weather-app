@@ -8,6 +8,7 @@ class App extends Component {
     state = {
         temperature: '',
         time: '',
+        elevation: '',
         windspeed: '',
         latitude: '',
         longitude: '',
@@ -21,14 +22,16 @@ class App extends Component {
         const longitudeValue = longitude.value;
 
         if (latitudeValue && longitudeValue) {
-            const API_URL = `https://api.open-meteo.com/v1/forecast?latitude=${latitudeValue}&longitude=${longitudeValue}&hourly=temperature_2m&current_weather=true`;
+            const API_URL = `https://api.open-meteo.com/v1/forecast?latitude=${latitudeValue}&longitude=${longitudeValue}&hourly=temperature_2m&daily=weathercode,sunrise,sunset,windspeed_10m_max&timezone=America%2FSao_Paulo`;
             const response = await fetch(API_URL);
             const data = await response.json();
 
+
             this.setState({
-                temperature: data.current_weather.temperature,
-                time: data.current_weather.time,
-                windspeed: data.current_weather.windspeed,
+                temperature: data.hourly.temperature_2m,
+                time: data.hourly.time,
+                elevation: data.elevation,
+                windspeed: data.daily.windspeed_10m_max,
                 latitude: data.latitude,
                 longitude: data.longitude,
                 error: null
