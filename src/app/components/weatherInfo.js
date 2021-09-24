@@ -9,7 +9,7 @@ const WeatherInfo = props => {
         <div>
             {
                 props.error &&
-                <div className="alert alert-danger">
+                <div className="alert alert-danger col-md-4 text-center mx-auto">
                     <p>{props.error}</p>
                 </div>
             }
@@ -25,7 +25,7 @@ const WeatherInfo = props => {
                                 </div>
                             </div>
                         </div>
-                        <div class="row plan-table">
+                        <div class="row plan-table col-md-4">
                             <div class="col-lg-7 text-white col-md-6">
                                 <div class="plan-style blue-shadow">
                                     <div class="plan-style-bg blue-bg-imh"></div>
@@ -110,8 +110,10 @@ const WeatherInfo = props => {
                     </section>
                     
                 :
-                <div className="card card-body">
-                    <p>No request yet</p>
+                <div className="col-md-4 mx-auto">
+                    <div className="card card-body bg-light text-center">
+                        <p>No request yet</p>
+                    </div>                    
                 </div>
             }
             

@@ -44,9 +44,11 @@ class App extends Component {
 
     render() {
         return(
-            <div className="container p-4">
+            <div className="container-sm p-4">
                 <div className="col-md-4 mx-auto">
                     <WeatherForm getWeather={this.getWeather} />
+                </div>
+                <div>
                     <WeatherInfo {...this.state} />
                 </div>
             </div>
