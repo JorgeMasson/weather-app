@@ -19,20 +19,24 @@ class App extends Component {
         const {latitude, longitude} = e.target.elements;
         const latitudeValue = latitude.value;
         const longitudeValue = longitude.value;
-        
-        const API_URL = `https://api.open-meteo.com/v1/forecast?latitude=${latitudeValue}&longitude=${longitudeValue}&hourly=temperature_2m&current_weather=true`;
-        const response = await fetch(API_URL);
-        const data = await response.json();
-        console.log(this.state)
 
-        this.setState({
-            temperature: data.current_weather.temperature,
-            time: data.current_weather.time,
-            windspeed: data.current_weather.windspeed,
-            latitude: data.latitude,
-            longitude: data.longitude,
-            error: null
-        }, () => console.log(this.state));
+        if (latitudeValue && longitudeValue) {
+            const API_URL = `https://api.open-meteo.com/v1/forecast?latitude=${latitudeValue}&longitude=${longitudeValue}&hourly=temperature_2m&current_weather=true`;
+            const response = await fetch(API_URL);
+            const data = await response.json();
+
+            this.setState({
+                temperature: data.current_weather.temperature,
+                time: data.current_weather.time,
+                windspeed: data.current_weather.windspeed,
+                latitude: data.latitude,
+                longitude: data.longitude,
+                error: null
+            });
+        } else {
+            this.setState({error: 'Please Insert a Latitude and a Longitude'})
+        }
+        
     }
 
     render() {
