@@ -2,7 +2,7 @@ import React from "react";
 
 const WeatherInfo = props => {
 
-    //console.log(props)
+    console.log(props)
 
     return (
 
@@ -15,7 +15,7 @@ const WeatherInfo = props => {
             }
             {
                 props.temperature ?
-                    <div className="card card-body">
+                    <div className="card card-body text-white bg-success">
                         <p>
                             Coordinates: {props.latitude}, {props.longitude}
                         </p>
